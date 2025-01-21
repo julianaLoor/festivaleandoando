@@ -1,0 +1,302 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  h1, h2 {
+    margin: 0;
+  }
+  
+  h2 {
+    color: purple;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+/* Logo centrado con fondo oscuro */
+.logo-container {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  overflow: hidden; /* Evita que la animación se desborde */
+}
+
+.logo-container::before {
+  content: ''; /* Crea una capa para el gradiente */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, yellow, skyblue, violet); /* Gradiente base */
+  background-size: 300%; /* Permite que el gradiente se mueva */
+  animation: colores-gradiente 5s infinite; /* Animación del gradiente */
+  opacity: 0.8; /* Ligera transparencia */
+  z-index: 1; /* Coloca el gradiente detrás del contenido */
+}
+
+/* Ajustes para el contenido del logo */
+.logo {
+  display: flex; /* Activa el modo Flexbox */
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Espaciado entre imagen y texto */
+  position: relative; /* Asegura que el contenido quede encima del gradiente */
+  z-index: 2; /* Asegura que esté encima del gradiente */
+}
+
+.logo img {
+  width: 10%;
+  height: auto;
+}
+
+.logo h1 {
+  font-size: 3em;
+  color: lightgreen;
+  text-shadow: 2px 2px 5px #000;
+  display: inline-block;
+  animation: aparecer 5s steps(12, end) 1, colores 10s infinite 10s; /* Combina ambas animaciones */
+  overflow: hidden; /* Oculta las letras fuera del contenedor */
+  white-space: nowrap; /* Evita que el texto haga saltos de línea */
+}
+
+/* Animación para hacer que las letras aparezcan */
+@keyframes aparecer {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Animación de colores */
+@keyframes colores {
+  10% {
+    color: yellowgreen;
+  }
+  50% {
+    color: skyblue;
+  }
+  100% {
+    color: violet;
+  }
+}
+
+/* Animación para el gradiente */
+@keyframes colores-gradiente {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+  
+/* Header sticky con distribución mejorada */
+header {
+  position: sticky; /* Fija el header al hacer scroll */
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el contenido */
+  padding: 10px 20px;
+  background-color: rgba(128, 0, 128, 0.7); /* Púrpura con transparencia */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destacarlo */
+  height: 80px; /* Altura fija del header */
+  width: 100%; /* Ocupa todo el ancho */
+  box-sizing: border-box; /* Asegura que el padding no exceda el ancho */
+}
+
+/* Contenedor principal del nav */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Logo alineado a la izquierda */
+nav .logo2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0; /* Evita que el logo cambie de tamaño */
+}
+
+nav .logo2 a {
+  text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+nav .logo2 a img {
+  width: 50px; /* Tamaño fijo del logo */
+  height: auto; /* Mantiene proporciones */
+  display: block; /* Asegura que la imagen actúe como bloque dentro del enlace */
+}
+
+/* Menú centrado */
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el menú */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 25px; /* Espaciado entre elementos del menú */
+  flex: 1; /* Permite que el menú ocupe el espacio flexible */
+}
+
+nav ul li a {
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffd700; /* Cambia a amarillo al pasar el cursor */
+}
+
+/* Botones en la izquierda de su div */
+nav .navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinea los botones a la izquierda */
+  gap: 15px; /* Espaciado entre Login y Carrito */
+  flex-shrink: 0; /* Evita que cambie de tamaño */
+}
+
+nav .navbar-right a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+}
+
+nav .navbar-right a i {
+  margin-right: 5px; /* Espaciado entre ícono y texto */
+  font-size: 1.5em;
+}
+
+nav .navbar-right a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo ligero al pasar */
+}
+
+  
+  /* Contenido principal */
+  main {
+    padding: 20px;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  /* Sección del video */
+#videos {
+  margin: 20px 0; /* Márgenes superior e inferior */
+  display: flex;
+  justify-content: center; /* Centra el video horizontalmente */
+}
+
+#videos video {
+  width: 100%; /* El video ocupa todo el ancho de su contenedor */
+  max-width: 100%; /* Evita que exceda el ancho de su contenedor */
+  height: auto; /* Mantiene la proporción del video */
+  border-radius: 10px; /* Bordes redondeados opcionales */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar el video */
+}
+  section {
+    margin-bottom: 40px;
+    width: auto;
+  }
+  
+  /* Localización */
+  #localizacion {
+    margin: 40px 0;
+    text-align: center;
+  }
+  
+  .busqueda {
+    margin-bottom: 20px;
+  }
+  
+  #codigo-postal {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  #buscar-btn {
+    padding: 10px 15px;
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  #buscar-btn:hover {
+    background-color: #4a0d6a;
+  }
+  
+  #mapa {
+    width: 100%; /* Ancho completo */
+    height: 400px; /* Altura fija */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra opcional */
+    margin-top: 20px;
+  }
+  
+  /* Galería */
+  .imagenes {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .imagenes img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Footer */
+  footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: purple;
+    color: white;
+    padding: 20px 0;
+  }
+  
+  footer .columna h3 {
+    margin-bottom: 10px;
+  }
+  
+  footer .columna p {
+    margin: 5px 0;
+  }
+  

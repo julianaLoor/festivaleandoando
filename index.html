@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FestivaleandoAndo</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- CSS de Leaflet -->
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  crossorigin=""
+  />
+  <!-- JS de Leaflet -->
+  <script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  crossorigin=""
+  ></script>
+
+</head>
+<body>
+  <div class="logo-container">
+    <div class="logo">
+      <img src="assets/images/mariposa.png" alt="mariposa">
+      <h1>FestivaleandoAndo</h1>
+    </div>
+  </div>
+
+  <header>
+    <nav>
+      <!-- Logo -->
+      <div class="logo2">
+        <a href="#home">
+          <img src="assets/images/mariposa2.png" alt="mariposa">
+        </a>
+      </div>
+  
+      <!-- Menú -->
+      <ul>
+        <li><a href="#home">Inicio</a></li>
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#localizacion">Localización</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#top">Top Festivales</a></li>
+        <li><a href="#contacto">extra</a></li>
+      </ul>
+  
+      <!-- Botones -->
+      <div class="navbar-right">
+        <a href="#login"><i class="material-icons">person</i> Login</a>
+        <a href="#carrito"><i class="material-icons">shopping_cart</i></a>
+      </div>
+    </nav>
+  </header>
+  
+
+  <main>
+    <section id="videos">
+      <video autoplay loop muted playsinline>
+        <source src="assets/videos/video1.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de vídeo.
+      </video>
+    </section>
+
+    <section id="localizacion">
+      <h2>Encuentra Festivales Cercanos</h2>
+      <div class="busqueda">
+        <label for="codigo-postal">Introduce tu código postal:</label>
+        <input type="text" id="codigo-postal" placeholder="Ejemplo: 28001">
+        <button id="buscar-btn">Buscar</button>
+      </div>
+      <div id="mapa"></div> <!-- Contenedor del mapa -->
+    </section>
+
+    <section id="galeria">
+      <h2>Galería de Imágenes</h2>
+      <div class="imagenes">
+        <img src="https://via.placeholder.com/300x200" alt="Festival 1">
+        <img src="https://via.placeholder.com/300x200" alt="Festival 2">
+        <img src="https://via.placeholder.com/300x200" alt="Festival 3">
+      </div>
+    </section>
+
+    <section id="top">
+      <h2>Top Festivales</h2>
+      <ul>
+        <li>Festival 1</li>
+        <li>Festival 2</li>
+        <li>Festival 3</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="columna">
+      <h3>Contáctanos</h3>
+      <p>Email: contacto@festivaleandoando.com</p>
+      <p>Empleos</p>
+    </div>
+    <div class="columna">
+      <h3>Términos Legales</h3>
+      <p>Privacidad</p>
+      <p>Condiciones</p>
+    </div>
+    <div class="columna">
+      <h3>Síguenos</h3>
+      <p>Facebook</p>
+      <p>Instagram</p>
+      <p>Twitter</p>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
