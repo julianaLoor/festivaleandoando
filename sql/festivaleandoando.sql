@@ -1,8 +1,15 @@
--- Script SQL para implementar el modelo relacional en MySQL
+
+-- Script SQL actualizado para la base de datos "festivaleandoando" con mejoras implementadas
 
 -- Crear base de datos
 CREATE DATABASE IF NOT EXISTS festivaleandoando;
 USE festivaleandoando;
+
+-- Tabla Tipos
+CREATE TABLE Tipos (
+    idTipo INT AUTO_INCREMENT PRIMARY KEY,
+    nombreTipo VARCHAR(50) NOT NULL
+);
 
 -- Tabla Usuarios
 CREATE TABLE Usuarios (
@@ -12,7 +19,8 @@ CREATE TABLE Usuarios (
     email VARCHAR(150) UNIQUE NOT NULL,
     contraseña VARCHAR(255) NOT NULL CHECK (CHAR_LENGTH(contraseña) BETWEEN 6 AND 20 AND contraseña REGEXP '[0-9]' AND contraseña REGEXP '[!@#$%^&*(),.?":{}|<>]'),
     fechaNacimiento DATE NOT NULL CHECK (TIMESTAMPDIFF(YEAR, fechaNacimiento, CURDATE()) >= 18),
-    esAdmin BOOLEAN DEFAULT FALSE
+    idTipo INT NOT NULL,
+    FOREIGN KEY (idTipo) REFERENCES Tipos(idTipo)
 );
 
 -- Tabla Recintos
@@ -42,6 +50,17 @@ CREATE TABLE Eventos (
     FOREIGN KEY (idCategoria) REFERENCES Categoria_Fest(idCategoria) ON DELETE CASCADE
 );
 
+-- Tabla Acciones_Eventos
+CREATE TABLE Acciones_Eventos (
+    idAccion INT AUTO_INCREMENT PRIMARY KEY,
+    idUser INT NOT NULL,
+    idEvento INT NOT NULL,
+    tipoAccion ENUM('selecciona', 'organiza', 'edita') NOT NULL,
+    fechaAccion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (idUser) REFERENCES Usuarios(idUser) ON DELETE CASCADE,
+    FOREIGN KEY (idEvento) REFERENCES Eventos(idEvento) ON DELETE CASCADE
+);
+
 -- Tabla Entradas
 CREATE TABLE Entradas (
     idEntrada INT AUTO_INCREMENT PRIMARY KEY,
@@ -53,10 +72,10 @@ CREATE TABLE Entradas (
 
 -- Tabla Compras
 CREATE TABLE Compras (
-    estado ENUM('pendiente', 'pagado') DEFAULT 'pendiente',
     idCompra INT AUTO_INCREMENT PRIMARY KEY,
     fechaCompra DATETIME DEFAULT CURRENT_TIMESTAMP,
     total DECIMAL(10, 2) NOT NULL,
+    estado ENUM('pendiente', 'pagado') DEFAULT 'pendiente',
     idUser INT NOT NULL,
     FOREIGN KEY (idUser) REFERENCES Usuarios(idUser) ON DELETE CASCADE
 );

@@ -1,3 +1,8 @@
+// Proyecto: FestivaleandoAndo
+// Autora: Juliana Lisseth Loor Montoya
+// Año: 2025
+// Licencia: MIT
+
 document.addEventListener("DOMContentLoaded", () => {
   // Inicializar el mapa
   const map = L.map("mapa").setView([40.416775, -3.70379], 6); // Coordenadas iniciales de Madrid
