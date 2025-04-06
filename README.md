@@ -41,14 +41,30 @@ Los proveedores ceden el 30% de sus entradas para ser vendidas en esta plataform
 
 ```
 festivaleandoando/
-├── assets/            # Imágenes, videos
-├── css/               # Archivos de estilos
-├── js/                # Archivos JavaScript
-├── sql/               # Script de creación de base de datos
-├── docs/              # Documentación (ER, UML, requisitos…)
-├── index.html         # Página principal
-├── README.md          # Este archivo
-├── LICENSE            # Licencia MIT
+├── backend/                # Proyecto Spring Boot (Java + Maven) 
+│   └── festivaleando-backend/
+│       ├── src/
+│       ├── pom.xml
+│       └── FestivaleandoandoApplication.java
+│
+├── frontend/               # Sitio web (HTML, CSS, JS)
+│   ├── index.html
+│   ├── css/
+│   ├── js/
+│   └── assets/
+│
+├── base_datos/             # Script SQL con la estructura y datos de la BD
+│   └── festivaleandoando.sql
+│
+├── docs/                   # Documentación técnica y de diseño
+│   ├── Anteproyecto a entregar.pdf
+│   ├── Requisitos funcionales y no funcionales.pdf
+│   ├── Diagramas UML - Casos de uso.pdf
+│   ├── Modelos ER y relacionales (JPG/Draw.io)
+│   └── Programación_Proyecto.pdf
+│
+├── README.md               # Instrucciones generales del proyecto
+└── LICENSE                 # Licencia del proyecto (MIT)
 ```
 
 ---
